@@ -49,7 +49,7 @@ export default function MobileDrawer() {
           <Box sx={styles.menu}>
             {menuItems.map((menuItem, i) => (
               <Link
-                activeClass='active'
+                activeClass="active"
                 to={menuItem.path}
                 spy={true}
                 smooth={true}
