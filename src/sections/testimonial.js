@@ -17,8 +17,8 @@ const data = [
     description:
       'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
     avatar: Avatar1,
-    name: 'Denny Hilguston',
-    designation: '@denny.hil',
+    name: 'Tara Jones',
+    designation: '@tara.jones',
     review: 4,
   },
   {
@@ -27,8 +27,8 @@ const data = [
     description:
       'Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.',
     avatar: Avatar2,
-    name: 'Denny Hilguston',
-    designation: '@denny.hil',
+    name: 'Peter Wanton',
+    designation: '@peter.wanton',
     review: 5,
   },
   {
@@ -101,7 +101,40 @@ const carouselParams = {
 
 export default function TestimonialCard() {
   return (
-   <h1>Testimonial Card</h1>
+    <section id="testimonial" sx={{ variant: 'section.testimonial' }}>
+      <Container css={{textAlign: 'center'}}>
+        <SectionHeader 
+          slogan="Testimonial"
+          title="Meet Client Satisfaction"
+        />
+      </Container>
+      <Box sx={styles.carouselWrapper}>
+        <Carousel {...carouselParams}>
+          {data.map((item) => (
+            <Box sx={styles.reviewCard} key={item.id}>
+              <Rating rating={item.review} />
+              <Heading as="h3" sx={styles.title}>
+                {item.title}
+              </Heading>
+              <Text sx={styles.description}>
+                {item.description}
+              </Text>
+              <div className="card-footer">
+                <div className="image">
+                  <Image src={item.avatar} alt="image"/>
+                </div>
+                <div className="reviewer-info">
+                  <Heading as="h4" sx={styles.heading}>
+                    {item.name}
+                  </Heading>
+                  <Text sx={styles.designation}>{item.designation}</Text>
+                </div>
+              </div>
+            </Box>
+          ))}
+        </Carousel>
+      </Box>
+   </section>
   );
 }
 
